@@ -120,6 +120,129 @@
             android:textColor="@color/colorPrimary"
             android:textSize="16sp" />
 
+        <EditText
+            android:id="@+id/taxRate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="160dp"
+            android:layout_marginStart="11dp"
+            android:layout_toEndOf="@+id/textViewtaxRate"
+            android:backgroundTint="@color/colorPrimary"
+            android:inputType="numberDecimal"
+            android:text=""
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp"
+            android:hint="%" />
+
+        <TextView
+            android:id="@+id/textViewtaxRate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/taxRate"
+            android:layout_alignBottom="@+id/taxRate"
+            android:layout_alignParentStart="true"
+            android:text="@string/tax_rate"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/payment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="210dp"
+
+            android:layout_alignParentStart="true"
+            android:text="Payment"
+            android:textColor="@color/grey"
+            android:textSize="26sp" />
+
+        <TextView
+            android:id="@+id/totalTax"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="260dp"
+            android:layout_alignParentStart="true"
+            android:text="Total Tax Paid ($)"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/totalTaxNumbers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="260dp"
+            android:layout_toEndOf="@+id/totalTax"
+            android:layout_marginLeft="20dp"
+            android:text="100000"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/totalInterest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="300dp"
+            android:layout_alignParentStart="true"
+            android:text="Total Interest Paid ($)"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/totalInterestNumbers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="300dp"
+            android:layout_toEndOf="@+id/totalInterest"
+            android:layout_marginLeft="20dp"
+            android:text="100000"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/monthlyPayment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="340dp"
+            android:layout_alignParentStart="true"
+            android:text="Monthly Payment ($)"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/monthlyPaymentNumbers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="340dp"
+            android:layout_toEndOf="@+id/monthlyPayment"
+            android:layout_marginLeft="20dp"
+            android:text="100000"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/payOffDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="380dp"
+            android:layout_alignParentStart="true"
+            android:text="Pay Off Date"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/payOffDateNumbers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="380dp"
+            android:layout_toEndOf="@+id/payOffDate"
+            android:layout_marginLeft="20dp"
+            android:text="100000"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp" />
+
+
+
     </RelativeLayout>
 
 

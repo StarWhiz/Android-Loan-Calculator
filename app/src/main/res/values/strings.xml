@@ -4,4 +4,7 @@
     <string name="down_payment">Down Payment (USD)</string>
     <string name="apr">APR (%)</string>
     <string name="terms">Terms (Years)</string>
+    <string name="tax_rate">Tax Rate (%)</string>
+    <string name="yrs">Yrs</string>
+
 </resources>
