@@ -2,6 +2,7 @@ package cs137.dbzgroup.loancalculator;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -33,7 +34,22 @@ public class LoanCalculator extends AppCompatActivity {
 
         calculateButton = (Button) findViewById(R.id.calculateButton);
         resetButton = (Button) findViewById(R.id.resetButton);
-        
+
+        //OnClickListener for Calculate
+        calculateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View view) {
+
+            }
+        });
+
+        //OnClickListener for Reset
+        resetButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View view) {
+
+            }
+        });
 
 
         super.onCreate(savedInstanceState);
