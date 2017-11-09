@@ -6,18 +6,18 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class LoanCalculator extends AppCompatActivity {
 
     //input
-    double dataHomeValue, dataDownPayment, dataApr , dataTaxRate;
-    int dataTerms;
+    String dataHomeValue, dataDownPayment, dataApr , dataTerms, dataTaxRate;
     //output
     double datatotalTax, datatotalInterest, datamonthlyPayment;
     String dataDate;
 
     //EditTextViews
-    EditText homeValue, downPayment, apr, taxRate, terms;
+    EditText homeValue, downPayment, apr, terms, taxRate;
     TextView totalTax, totalInterest, monthlyPayment, date;
     Button calculateButton, resetButton;
 
@@ -34,15 +34,32 @@ public class LoanCalculator extends AppCompatActivity {
         taxRate = (EditText) findViewById(R.id.taxRate);
         terms = (EditText) findViewById(R.id.terms);
 
+        totalTax = (TextView) findViewById(R.id.totalTaxNumbers);
+        totalInterest = (TextView) findViewById(R.id.totalInterestNumbers);
+        monthlyPayment = (TextView) findViewById(R.id.monthlyPaymentNumbers);
+        date = (TextView) findViewById(R.id.payOffDateNumbers);
+
         calculateButton = (Button) findViewById(R.id.calculateButton);
         resetButton = (Button) findViewById(R.id.resetButton);
-
 
         //OnClickListener for Calculate
         calculateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View view) {
-                System.out.println("calc was pressed");
+                dataHomeValue = homeValue.getText().toString();
+                dataDownPayment = downPayment.getText().toString();
+                dataApr = apr.getText().toString();
+                dataTerms =
+                dataTaxRate = taxRate.getText().toString();
+
+                if (dataHomeValue.matches("") || dataDownPayment.matches("") ||
+                        dataApr .matches("") || dataTerms.matches("") || dataTaxRate.matches("")){
+
+                    Toast.makeText(getApplicationContext(), "Please complete all fields above 'Payment'", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    System.out.println("not empty");
+                }
 
             }
         });
@@ -57,8 +74,12 @@ public class LoanCalculator extends AppCompatActivity {
                 apr.getText().clear();
                 taxRate.getText().clear();
                 terms.getText().clear();
+                totalTax.setText("");
+                totalInterest.setText("");
+                monthlyPayment.setText("");
+                date.setText("");
 
-                System.out.println("reset was pressed");
+                Toast.makeText(getApplicationContext(), "All fields cleared", Toast.LENGTH_SHORT).show();
             }
         });
     }
