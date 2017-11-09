@@ -241,6 +241,25 @@
             android:textColor="@color/colorPrimaryDark"
             android:textSize="16sp" />
 
+        <Button
+            android:id="@+id/calculateButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="420dp"
+            android:layout_alignParentRight="true"
+            android:text="Calculate"
+            android:backgroundTint="@color/colorPrimary"
+            android:textColor="@color/white"/>
+
+        <Button
+            android:id="@+id/resetButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toStartOf="@+id/calculateButton"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:text="Reset"
+            android:textColor="@color/white" />
 
 
     </RelativeLayout>
