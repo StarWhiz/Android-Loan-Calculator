@@ -71,6 +71,9 @@ public class LoanCalculator extends AppCompatActivity {
                     dblDataTerms = Double.parseDouble(dataTerms);
                     dblDataTaxRate = Double.parseDouble(dataTaxRate);
 
+                    double principal = dblHomeValue - dblDownPayment;
+
+
                     double numberOfMonthlyPayments = dblDataTerms*12; // n
                     double monthlyInterestRate = dblDataApr / 12; // r
                     double numerator;
@@ -79,8 +82,8 @@ public class LoanCalculator extends AppCompatActivity {
 
                     numerator = monthlyInterestRate * Math.pow((1+monthlyInterestRate),numberOfMonthlyPayments);
                     denominator = Math.pow((1+monthlyInterestRate),numberOfMonthlyPayments) -1;
-                    resultMonthlyPayment = dblHomeValue * (numerator/denominator);
-                    
+                    resultMonthlyPayment = principal * (numerator/denominator);
+
                     //stringResultMonthlyPayment = Double.toString(resultMonthlyPayment);
                     stringResultMonthlyPayment = df.format(resultMonthlyPayment); //makes it 2 decimal places
 
@@ -94,7 +97,6 @@ public class LoanCalculator extends AppCompatActivity {
                     stringResultTotalInterest = Double.toString(resultTotalInterest);
                     totalInterest.setText(stringResultTotalInterest);
                 }
-
             }
         });
 
