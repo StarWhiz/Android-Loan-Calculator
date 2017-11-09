@@ -234,7 +234,6 @@
             android:layout_marginTop="380dp"
             android:layout_toEndOf="@+id/payOffDate"
             android:layout_marginLeft="20dp"
-            android:text="May 2100"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="16sp" />
 

@@ -8,11 +8,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DateFormatSymbols;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class LoanCalculator extends AppCompatActivity {
-
+    Calendar cal = Calendar.getInstance();
     //input
     String dataHomeValue, dataDownPayment, dataApr , dataTerms, dataTaxRate;
     Double dblHomeValue, dblDownPayment, dblDataApr, dblDataTerms, dblDataTaxRate;
@@ -76,7 +79,7 @@ public class LoanCalculator extends AppCompatActivity {
                     double numberOfMonthlyPayments = dblDataTerms*12; // n
                     double monthlyInterestRate = dblDataApr / 12; // r
 
-                    // DecimalFormat df = new DecimalFormat("#,##0.##");
+                    DecimalFormat df = new DecimalFormat("##"); // used for year
                     NumberFormat nf = NumberFormat.getCurrencyInstance(); //better formatter than decimal format
 
                     /**
@@ -114,6 +117,16 @@ public class LoanCalculator extends AppCompatActivity {
                     //stringResultTotalInterest = Double.toString(resultTotalInterest);
                     stringResultTotalInterest = nf.format(resultTotalInterest);
                     totalInterest.setText(stringResultTotalInterest);
+
+                    /**
+                     * Calculating Pay Off Date
+                     */
+                    int year = cal.get(Calendar.YEAR);
+                    double payOffYear = year + dblDataTerms;
+                    String strPayOffYear = df.format(payOffYear);
+
+                    String currentMonth = new SimpleDateFormat("MMM").format(cal.getTime());
+                    date.setText(currentMonth + " " + strPayOffYear );
                 }
             }
         });
