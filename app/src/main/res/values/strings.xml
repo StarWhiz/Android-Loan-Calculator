@@ -6,5 +6,11 @@
     <string name="terms">Terms (Years)</string>
     <string name="tax_rate">Tax Rate (%)</string>
     <string name="yrs">Yrs</string>
-
+    <string-array name="termList">
+        <item>15</item>
+        <item>20</item>
+        <item>25</item>
+        <item>30</item>
+        <item>40</item>
+    </string-array>
 </resources>
