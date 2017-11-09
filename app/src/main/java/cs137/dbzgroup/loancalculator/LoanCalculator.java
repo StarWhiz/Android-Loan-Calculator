@@ -8,14 +8,17 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DecimalFormat;
+
 public class LoanCalculator extends AppCompatActivity {
 
     //input
     String dataHomeValue, dataDownPayment, dataApr , dataTerms, dataTaxRate;
     Double dblHomeValue, dblDownPayment, dblDataApr, dblDataTerms, dblDataTaxRate;
     //output
-    double datatotalTax, datatotalInterest, datamonthlyPayment;
-    String dataDate;
+    double resultTotalTax, resultTotalInterest, resultMonthlyPayment;
+    String stringResultTotalTax, stringResultTotalInterest, stringResultMonthlyPayment;
+    String resultDate;
 
     //EditTextViews
     EditText homeValue, downPayment, apr, terms, taxRate;
@@ -59,12 +62,37 @@ public class LoanCalculator extends AppCompatActivity {
                 }
                 else {
                     System.out.println("not empty");
+
+
                     // Calculations here
-                    dblHomeValue = Double.parseDouble(dataHomeValue);
+                    dblHomeValue = Double.parseDouble(dataHomeValue); // P
                     dblDownPayment = Double.parseDouble(dataDownPayment);
-                    dblDataApr = Double.parseDouble(dataApr);
+                    dblDataApr = Double.parseDouble(dataApr)/100; //so we can input whole number in taht field
                     dblDataTerms = Double.parseDouble(dataTerms);
                     dblDataTaxRate = Double.parseDouble(dataTaxRate);
+
+                    double numberOfMonthlyPayments = dblDataTerms*12; // n
+                    double monthlyInterestRate = dblDataApr / 12; // r
+                    double numerator;
+                    double denominator;
+                    DecimalFormat df = new DecimalFormat("#.##");
+
+                    numerator = monthlyInterestRate * Math.pow((1+monthlyInterestRate),numberOfMonthlyPayments);
+                    denominator = Math.pow((1+monthlyInterestRate),numberOfMonthlyPayments) -1;
+                    resultMonthlyPayment = dblHomeValue * (numerator/denominator);
+                    
+                    //stringResultMonthlyPayment = Double.toString(resultMonthlyPayment);
+                    stringResultMonthlyPayment = df.format(resultMonthlyPayment); //makes it 2 decimal places
+
+                    monthlyPayment.setText(stringResultMonthlyPayment);
+
+
+
+
+
+                    resultTotalInterest = dblHomeValue*dblDataApr;
+                    stringResultTotalInterest = Double.toString(resultTotalInterest);
+                    totalInterest.setText(stringResultTotalInterest);
                 }
 
             }
