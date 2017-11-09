@@ -17,7 +17,7 @@ public class LoanCalculator extends AppCompatActivity {
     String dataHomeValue, dataDownPayment, dataApr , dataTerms, dataTaxRate;
     Double dblHomeValue, dblDownPayment, dblDataApr, dblDataTerms, dblDataTaxRate;
     //output
-    double resultTotalTax, resultTotalInterest, resultMonthlyPayment;
+    double resultTotalTax, resultTotalInterest, resultMonthlyPayment, resultMonthlyPaymentWOtax;
     String stringResultTotalTax, stringResultTotalInterest, stringResultMonthlyPayment;
     String resultDate;
 
@@ -80,7 +80,7 @@ public class LoanCalculator extends AppCompatActivity {
                     NumberFormat nf = NumberFormat.getCurrencyInstance(); //better formatter than decimal format
 
                     /**
-                     * Calculating total tax
+                     * Calculating total tax (DONE)
                      */
                     double totalTaxNum = dblHomeValue * dblDataTaxRate * dblDataTerms;
                     //stringResultTotalTax = Double.toString(taxNum);
@@ -90,7 +90,7 @@ public class LoanCalculator extends AppCompatActivity {
                     totalTax.setText(stringResultTotalTax);
 
                     /**
-                     * Calculating monthly payment
+                     * Calculating monthly payment (DONE)
                      */
                     double numerator;
                     double denominator;
@@ -98,19 +98,19 @@ public class LoanCalculator extends AppCompatActivity {
 
                     numerator = monthlyInterestRate * Math.pow((1+monthlyInterestRate),numberOfMonthlyPayments);
                     denominator = Math.pow((1+monthlyInterestRate),numberOfMonthlyPayments) -1;
+
                     resultMonthlyPayment = principal * (numerator/denominator) + monthlyTax;
+                    resultMonthlyPaymentWOtax = principal * (numerator/denominator);
                     System.out.println(resultMonthlyPayment);
 
                     //stringResultMonthlyPayment = Double.toString(resultMonthlyPayment);
                     stringResultMonthlyPayment = nf.format(resultMonthlyPayment); //makes it 2 decimal places
                     monthlyPayment.setText(stringResultMonthlyPayment);
 
-
                     /**
-                     * Calculating total interest
+                     * Calculating total interest paid
                      */
-
-                    resultTotalInterest = resultMonthlyPayment;
+                    resultTotalInterest = (resultMonthlyPaymentWOtax * numberOfMonthlyPayments) - principal;
                     //stringResultTotalInterest = Double.toString(resultTotalInterest);
                     stringResultTotalInterest = nf.format(resultTotalInterest);
                     totalInterest.setText(stringResultTotalInterest);
