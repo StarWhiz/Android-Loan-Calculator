@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,7 +26,8 @@ public class LoanCalculator extends AppCompatActivity {
     String resultDate;
 
     //EditTextViews
-    EditText homeValue, downPayment, apr, terms, taxRate;
+    EditText homeValue, downPayment, apr, taxRate;
+    Spinner terms;
     TextView totalTax, totalInterest, monthlyPayment, date;
     Button calculateButton, resetButton;
 
@@ -40,7 +42,7 @@ public class LoanCalculator extends AppCompatActivity {
         downPayment = (EditText) findViewById(R.id.downPayment);
         apr = (EditText) findViewById(R.id.apr);
         taxRate = (EditText) findViewById(R.id.taxRate);
-        terms = (EditText) findViewById(R.id.terms);
+        terms = (Spinner) findViewById(R.id.terms);
 
         totalTax = (TextView) findViewById(R.id.totalTaxNumbers);
         totalInterest = (TextView) findViewById(R.id.totalInterestNumbers);
@@ -57,7 +59,7 @@ public class LoanCalculator extends AppCompatActivity {
                 dataHomeValue = homeValue.getText().toString();
                 dataDownPayment = downPayment.getText().toString();
                 dataApr = apr.getText().toString();
-                dataTerms = terms.getText().toString();
+                dataTerms = terms.getSelectedItem().toString();
                 dataTaxRate = taxRate.getText().toString();
 
                 if (dataHomeValue.matches("") || dataDownPayment.matches("") ||
@@ -139,7 +141,7 @@ public class LoanCalculator extends AppCompatActivity {
                 downPayment.getText().clear();
                 apr.getText().clear();
                 taxRate.getText().clear();
-                terms.getText().clear();
+                terms.setSelection(0);
                 totalTax.setText("");
                 totalInterest.setText("");
                 monthlyPayment.setText("");

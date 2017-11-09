@@ -94,7 +94,7 @@
             android:textColor="@color/colorPrimary"
             android:textSize="16sp" />
 
-        <EditText
+        <Spinner
             android:id="@+id/terms"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -103,11 +103,9 @@
             android:layout_marginStart="11dp"
             android:layout_toEndOf="@+id/textViewTerms"
             android:backgroundTint="@color/colorPrimary"
-            android:inputType="numberDecimal"
-            android:text=""
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="16sp"
-            android:hint="Yrs" />
+            android:entries="@array/termList"
+            android:prompt="@string/termPrompt"
+        />
 
         <TextView
             android:id="@+id/textViewTerms"
