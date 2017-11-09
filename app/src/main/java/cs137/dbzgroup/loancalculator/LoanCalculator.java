@@ -24,6 +24,8 @@ public class LoanCalculator extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_loan_calculator); //LOAD THIS LAYOUT
 
         //Linking widgets to View...
         homeValue = (EditText) findViewById(R.id.homeValue);
@@ -35,24 +37,29 @@ public class LoanCalculator extends AppCompatActivity {
         calculateButton = (Button) findViewById(R.id.calculateButton);
         resetButton = (Button) findViewById(R.id.resetButton);
 
+
         //OnClickListener for Calculate
         calculateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View view) {
+                System.out.println("calc was pressed");
 
             }
         });
+
 
         //OnClickListener for Reset
         resetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View view) {
+                homeValue.getText().clear();
+                downPayment.getText().clear();
+                apr.getText().clear();
+                taxRate.getText().clear();
+                terms.getText().clear();
 
+                System.out.println("reset was pressed");
             }
         });
-
-
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_loan_calculator);
     }
 }
