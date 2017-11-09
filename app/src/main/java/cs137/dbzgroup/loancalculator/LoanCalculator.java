@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
 
 public class LoanCalculator extends AppCompatActivity {
 
@@ -67,34 +68,51 @@ public class LoanCalculator extends AppCompatActivity {
                     // Calculations here
                     dblHomeValue = Double.parseDouble(dataHomeValue); // P
                     dblDownPayment = Double.parseDouble(dataDownPayment);
-                    dblDataApr = Double.parseDouble(dataApr)/100; //so we can input whole number in taht field
+                    dblDataApr = Double.parseDouble(dataApr)/100;
                     dblDataTerms = Double.parseDouble(dataTerms);
-                    dblDataTaxRate = Double.parseDouble(dataTaxRate);
+                    dblDataTaxRate = Double.parseDouble(dataTaxRate)/100;
 
                     double principal = dblHomeValue - dblDownPayment;
-
-
                     double numberOfMonthlyPayments = dblDataTerms*12; // n
                     double monthlyInterestRate = dblDataApr / 12; // r
+
+                    // DecimalFormat df = new DecimalFormat("#,##0.##");
+                    NumberFormat nf = NumberFormat.getCurrencyInstance(); //better formatter than decimal format
+
+                    /**
+                     * Calculating total tax
+                     */
+                    double totalTaxNum = dblHomeValue * dblDataTaxRate * dblDataTerms;
+                    //stringResultTotalTax = Double.toString(taxNum);
+                    stringResultTotalTax = nf.format(totalTaxNum);
+                    System.out.println(totalTaxNum);
+                    System.out.println("BUTTON PRESSED");
+                    totalTax.setText(stringResultTotalTax);
+
+                    /**
+                     * Calculating monthly payment
+                     */
                     double numerator;
                     double denominator;
-                    DecimalFormat df = new DecimalFormat("#.##");
+                    double monthlyTax = totalTaxNum / numberOfMonthlyPayments;
 
                     numerator = monthlyInterestRate * Math.pow((1+monthlyInterestRate),numberOfMonthlyPayments);
                     denominator = Math.pow((1+monthlyInterestRate),numberOfMonthlyPayments) -1;
-                    resultMonthlyPayment = principal * (numerator/denominator);
+                    resultMonthlyPayment = principal * (numerator/denominator) + monthlyTax;
+                    System.out.println(resultMonthlyPayment);
 
                     //stringResultMonthlyPayment = Double.toString(resultMonthlyPayment);
-                    stringResultMonthlyPayment = df.format(resultMonthlyPayment); //makes it 2 decimal places
-
+                    stringResultMonthlyPayment = nf.format(resultMonthlyPayment); //makes it 2 decimal places
                     monthlyPayment.setText(stringResultMonthlyPayment);
 
 
+                    /**
+                     * Calculating total interest
+                     */
 
-
-
-                    resultTotalInterest = dblHomeValue*dblDataApr;
-                    stringResultTotalInterest = Double.toString(resultTotalInterest);
+                    resultTotalInterest = resultMonthlyPayment;
+                    //stringResultTotalInterest = Double.toString(resultTotalInterest);
+                    stringResultTotalInterest = nf.format(resultTotalInterest);
                     totalInterest.setText(stringResultTotalInterest);
                 }
             }

@@ -163,7 +163,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="260dp"
             android:layout_alignParentStart="true"
-            android:text="Total Tax Paid ($)"
+            android:text="Total Tax Paid (USD)"
             android:textColor="@color/colorPrimary"
             android:textSize="16sp" />
 
@@ -174,7 +174,6 @@
             android:layout_marginTop="260dp"
             android:layout_toEndOf="@+id/totalTax"
             android:layout_marginLeft="20dp"
-            android:text="100000"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="16sp" />
 
@@ -184,7 +183,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="300dp"
             android:layout_alignParentStart="true"
-            android:text="Total Interest Paid ($)"
+            android:text="Total Interest Paid (USD)"
             android:textColor="@color/colorPrimary"
             android:textSize="16sp" />
 
@@ -195,7 +194,6 @@
             android:layout_marginTop="300dp"
             android:layout_toEndOf="@+id/totalInterest"
             android:layout_marginLeft="20dp"
-            android:text="100000"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="16sp" />
 
@@ -205,7 +203,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="340dp"
             android:layout_alignParentStart="true"
-            android:text="Monthly Payment ($)"
+            android:text="Monthly Payment (USD)"
             android:textColor="@color/colorPrimary"
             android:textSize="16sp" />
 
@@ -216,7 +214,6 @@
             android:layout_marginTop="340dp"
             android:layout_toEndOf="@+id/monthlyPayment"
             android:layout_marginLeft="20dp"
-            android:text="100000"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="16sp" />
 
@@ -237,7 +234,7 @@
             android:layout_marginTop="380dp"
             android:layout_toEndOf="@+id/payOffDate"
             android:layout_marginLeft="20dp"
-            android:text="100000"
+            android:text="May 2100"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="16sp" />
 
