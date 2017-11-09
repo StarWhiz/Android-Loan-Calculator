@@ -12,6 +12,7 @@ public class LoanCalculator extends AppCompatActivity {
 
     //input
     String dataHomeValue, dataDownPayment, dataApr , dataTerms, dataTaxRate;
+    Double dblHomeValue, dblDownPayment, dblDataApr, dblDataTerms, dblDataTaxRate;
     //output
     double datatotalTax, datatotalInterest, datamonthlyPayment;
     String dataDate;
@@ -54,16 +55,20 @@ public class LoanCalculator extends AppCompatActivity {
 
                 if (dataHomeValue.matches("") || dataDownPayment.matches("") ||
                         dataApr .matches("") || dataTerms.matches("") || dataTaxRate.matches("")){
-
                     Toast.makeText(getApplicationContext(), "Please complete all fields above 'Payment'", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     System.out.println("not empty");
+                    // Calculations here
+                    dblHomeValue = Double.parseDouble(dataHomeValue);
+                    dblDownPayment = Double.parseDouble(dataDownPayment);
+                    dblDataApr = Double.parseDouble(dataApr);
+                    dblDataTerms = Double.parseDouble(dataTerms);
+                    dblDataTaxRate = Double.parseDouble(dataTaxRate);
                 }
 
             }
         });
-
 
         //OnClickListener for Reset
         resetButton.setOnClickListener(new View.OnClickListener() {
@@ -78,7 +83,6 @@ public class LoanCalculator extends AppCompatActivity {
                 totalInterest.setText("");
                 monthlyPayment.setText("");
                 date.setText("");
-
                 Toast.makeText(getApplicationContext(), "All fields cleared", Toast.LENGTH_SHORT).show();
             }
         });
