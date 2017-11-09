@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="false"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context="cs137.dbzgroup.loancalculator.LoanCalculator">
+
+        <EditText
+            android:id="@+id/homeValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="11dp"
+            android:layout_toEndOf="@+id/textViewHomeVal"
+            android:backgroundTint="@color/colorPrimary"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:text=""
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp"
+            android:hint="$" />
+
+        <TextView
+            android:id="@+id/textViewHomeVal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/homeValue"
+            android:layout_alignBottom="@+id/homeValue"
+            android:layout_alignParentStart="true"
+            android:text="@string/home_value"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/downPayment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="40dp"
+            android:layout_marginStart="11dp"
+            android:layout_toEndOf="@+id/textViewDownPay"
+            android:backgroundTint="@color/colorPrimary"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:text=""
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp"
+            android:hint="$"/>
+
+        <TextView
+            android:id="@+id/textViewDownPay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/downPayment"
+            android:layout_alignBottom="@+id/downPayment"
+            android:layout_alignParentStart="true"
+            android:text="@string/down_payment"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/apr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="80dp"
+            android:layout_marginStart="11dp"
+            android:layout_toEndOf="@+id/textViewApr"
+            android:backgroundTint="@color/colorPrimary"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:text=""
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp"
+            android:hint="%"/>
+
+        <TextView
+            android:id="@+id/textViewApr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/apr"
+            android:layout_alignBottom="@+id/apr"
+            android:layout_alignParentStart="true"
+            android:text="@string/apr"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/terms"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="120dp"
+            android:layout_marginStart="11dp"
+            android:layout_toEndOf="@+id/textViewTerms"
+            android:backgroundTint="@color/colorPrimary"
+            android:inputType="numberDecimal"
+            android:text=""
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp"
+            android:hint="Yrs" />
+
+        <TextView
+            android:id="@+id/textViewTerms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/terms"
+            android:layout_alignBottom="@+id/terms"
+            android:layout_alignParentStart="true"
+            android:text="@string/terms"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+
+
+
+</ScrollView>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">LoanCalculator</string>
+    <string name="home_value">Home Value (USD)</string>
+    <string name="down_payment">Down Payment (USD)</string>
+    <string name="apr">APR (%)</string>
+    <string name="terms">Terms (Years)</string>
+</resources>
