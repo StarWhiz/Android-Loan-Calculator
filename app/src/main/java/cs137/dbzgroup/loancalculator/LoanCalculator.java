@@ -50,7 +50,7 @@ public class LoanCalculator extends AppCompatActivity {
                 dataHomeValue = homeValue.getText().toString();
                 dataDownPayment = downPayment.getText().toString();
                 dataApr = apr.getText().toString();
-                dataTerms =
+                dataTerms = terms.getText().toString();
                 dataTaxRate = taxRate.getText().toString();
 
                 if (dataHomeValue.matches("") || dataDownPayment.matches("") ||
